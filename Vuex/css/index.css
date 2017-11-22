@@ -1,0 +1,147 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body {
+	font-family: '黑体';
+}
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.header {
+	height: 120px;
+	background: orange;
+	color: #fff;
+}
+.header h1 {
+	padding-top: 20px;
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.header img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	vertical-align: top;
+	margin-right: 10px;
+	margin-left: 20px;
+}
+.header span {
+	font-size: 14px;
+}
+.menu {
+	height: 60px;
+	line-height: 60px;
+	background: #efefef;
+	text-align: center;
+	border-bottom: 2px solid #efefef;
+}
+.menu a {
+	display: inline-block;
+	padding: 0 20px;
+	height: 60px;
+	color: #666;
+	font-size: 20px;
+	text-decoration: none;
+}
+.menu a.choose{
+	color: red;
+	border-bottom: 2px solid red;
+}
+.shopping-car {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 60px;
+	line-height: 60px;
+	background: #484d54;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
+}
+.shopping-car .ready {
+	float: right;
+	padding: 0 30px;
+	height: 60px;
+	display: inline-block;
+	background: #fe2947;
+}
+.nav {
+	width: 100px;
+	float: left;
+}
+.nav a {
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 16px;
+	color: #666;
+	background: #efefef;
+	text-decoration: none;
+	border-left: 2px solid #efefef;
+}
+.nav a.router-link-active {
+	color: red;
+	background: #fff;
+	border-left: 2px solid red;
+}
+.main {
+	margin-left: 100px;
+}
+.food {
+	padding: 10px;
+}
+.food li {
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+}
+.food li img {
+	width: 50px;
+	height: 50px;
+	float: left;
+}
+.food li .content {
+	margin-left: 60px;
+	font-size: 12px;
+}
+.food li h3 {
+	font-weight: normal;
+}
+.food li .price {
+	color: red;
+	font-size: 16px;
+}
+.food li .sales {
+	color: #666;
+	margin: 2px 0;
+}
+.food li span.num,
+.food li span.add,
+.food li span.reduce {
+	float: right;
+}
+.food li span.num {
+	font-size: 16px;
+	margin: 0 5px;
+	position: relative;
+	top: 2px;
+}
+.food li span.add,
+.food li span.reduce {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	color: red;
+	border: 1px solid #ccc;
+	font-weight: bold;
+	text-align: center;
+	line-height: 20px;
+	font-size: 20px;
+	display: inline-block;
+}

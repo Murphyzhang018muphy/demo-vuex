@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<title>外卖</title>
+</head>
+<body>
+	<div id="app">
+		<router-view></router-view>
+	</div>
+	<!-- 定义模板 -->
+	<template id="tpl_shop">
+		<div>
+			<header class="header">
+				<h1>{{shop.title}}</h1>
+				<p>
+					<img v-if="shop.logo" :src="'img/' + shop.logo" alt=""><span>{{shop.info}}</span>
+				</p>
+			</header>
+			<!-- 页面导航 -->
+			<div class="menu">
+				<!-- 因为出现警告，所以在router-link循环创建的时候，一定要指定key，并且值是唯一的 -->
+				<router-link v-for="item in shop.menu" :to="'/shop/' + shop.store + '/' + item.id+'/food/01'" :class="$route.path.indexOf(item.id) > 0 ? 'choose' : ''" v-text="item.text" v-text="item.text" :key="item.id"></router-link>	
+			</div>
+			<router-view></router-view>
+			<div class="shopping-car">
+				<span>共￥{{$store.state.num}}元</span>
+				<span class="ready">选好了</span>
+			</div>
+		</div>
+	</template>
+	<template id="tpl_product">
+		<div>
+			<div class="nav">
+				<!-- 菜单导航 -->
+				<router-link v-for="(item, index) in nav" v-text="item.text" :to="'/shop/' + $route.params.storeName + '/product/food/' + item.id" :key="index"></router-link>
+			</div>
+			<!-- 定义子路由 -->
+			<div class="main">
+				<router-view></router-view>
+			</div>
+		</div>
+	</template>
+	<template id="tpl_food">
+	<div>
+		<ul class="food">
+			<li v-for="item in lists">
+				<img :src="'img/item/'+item.img" alt="">
+				<div class="content">
+					<h3>{{item.title}}</h3>
+					<p class="sales">已售{{item.sales}}份</p>
+					<p>
+						<span class="price">¥{{item.price}}</span>
+						<!-- 方法中传item，为了让add或者reduce获得当前产品方法 -->
+						<span class="add"  @click="add(item); $store.commit('add', item.price)">+</span><span class="num" v-show="item.num>0">{{item.num}}</span>
+						<span class="reduce" @click="reduce(item); $store.commit('reduce', item.price)" v-show="item.num>0">-</span>
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	</template>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/vue-router.js"></script>
+	<script type="text/javascript" src="js/vue-resource.js"></script>
+	<script type="text/javascript" src="js/vuex.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+
+	</script>
+</body>
+</html>
